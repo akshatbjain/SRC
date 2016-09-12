@@ -16,13 +16,6 @@ for n in range(1,6):
     og = cv2.resize(og,(width,height))
 
     #cv2.imshow('Original', og)
-
-    color = ('b','g','r')
-    for i,col in enumerate(color):
-        histr = cv2.calcHist([og],[i],None,[256],[0,256])
-        plt.plot(histr,color = col)
-        plt.xlim([0,256])
-    plt.show()
     
     #Convert to grayscale
     gray = cv2.cvtColor(og,cv2.COLOR_BGR2GRAY)
@@ -64,5 +57,6 @@ for n in range(1,6):
     cv2.imshow('Original', og)
 
     cv2.waitKey(0)
-    cv2.destroyAllWindows()
+
+cv2.destroyAllWindows()
  
