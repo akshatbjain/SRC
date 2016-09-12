@@ -1,9 +1,10 @@
 # Task 1 - Detect a light source and identify its RGB value
 
 import cv2
-import numpy as np;
+import numpy as np
+from matplotlib import pyplot as plt
 
-for n in range(1,7):
+for n in range(1,6):
     string = 'test'+ str(n) + '.jpg'
     # Read image
     og = cv2.imread(string)
@@ -16,6 +17,13 @@ for n in range(1,7):
 
     #cv2.imshow('Original', og)
 
+    color = ('b','g','r')
+    for i,col in enumerate(color):
+        histr = cv2.calcHist([og],[i],None,[256],[0,256])
+        plt.plot(histr,color = col)
+        plt.xlim([0,256])
+    plt.show()
+    
     #Convert to grayscale
     gray = cv2.cvtColor(og,cv2.COLOR_BGR2GRAY)
     #cv2.imshow('Gray', gray)
